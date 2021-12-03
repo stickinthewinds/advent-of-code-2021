@@ -21,7 +21,7 @@ def main(args):
     try:
         day = f"Day{args.day:02}"
         with open(f"{day}/{args.input}", "r") as f:
-            dayClass = day_to_class(day)(f)
+            dayClass = day_to_class(day)([l.rstrip() for l in f.readlines()])
             dayClass.task()
     except FileNotFoundError:
         print("'" + args.input + "' doesn't exist.")
